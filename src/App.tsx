@@ -78,17 +78,6 @@ const COLLECTIONS = [
     description: "The classic red and blue GMT look. A rugged, versatile companion for the global traveler.",
     specs: { movement: "Japanese NH34 GMT Automatic", glass: "Hardlex Crystal", waterResistance: "100m", caseSize: "40mm" }
   },
-  { 
-    id: 10, 
-    name: "Seikojust | Wimbledon Dial", 
-    tag: "Seiko Mod", 
-    category: "Watch",
-    price: "₹999", 
-    image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1000&auto=format&fit=crop",
-    description: "Slate grey dial with green-bordered Roman numerals. A sporty yet sophisticated tribute.",
-    specs: { movement: "Japanese NH35 Automatic", glass: "Sapphire Crystal", waterResistance: "50m", caseSize: "36mm" }
-  },
-
   // --- ROLEX LUXURY ---
   { 
     id: 15, 
@@ -442,24 +431,16 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   className="bg-brand-black text-white p-10 rounded-[2.5rem] text-center"
                 >
                   <QrCode size={48} className="mx-auto text-brand-gold mb-6" />
-                  <h2 className="text-luxury text-4xl mb-4">Pay via UPI QR</h2>
-                  <p className="text-gray-400 mb-8 text-sm uppercase tracking-widest font-bold">Total: {product.price}</p>
-                  
-                  <div className="aspect-square max-w-[240px] mx-auto bg-white p-6 rounded-3xl mb-8 flex items-center justify-center shadow-2xl">
-                    <div className="w-full h-full border-4 border-dashed border-gray-200 rounded-xl flex flex-col items-center justify-center text-brand-black/40 italic">
-                      <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=honeyfashion@upi&pn=HoneyFashion&am=${product.price.replace('₹', '').replace(',', '')}&cu=INR`} alt="UPI QR Code" className="w-full h-full object-contain" />
-                    </div>
+                  <div className="aspect-square max-w-[320px] mx-auto bg-[#FDF0E0] p-6 rounded-[2.5rem] mb-8 flex items-center justify-center shadow-2xl border border-brand-gold/10">
+                    <img 
+                      src="/src/assets/images/payment_qr.jpg" 
+                      alt="UPI Payment QR Code" 
+                      className="w-full h-full object-contain" 
+                    />
                   </div>
 
-                  <button 
-                    onClick={() => setOrderStep('success')}
-                    className="w-full bg-brand-gold text-brand-black py-4 rounded-full font-bold uppercase tracking-widest text-[10px] mb-4"
-                  >
-                    I Have Paid
-                  </button>
-
                   <p className="text-[10px] text-gray-500 mb-2 px-6 uppercase tracking-widest font-bold leading-relaxed">
-                    Scan the QR above. Once completed, click the button to notify our team.
+                    Scan the QR above with any UPI app to complete your purchase.
                   </p>
                 </motion.div>
               )}
@@ -500,11 +481,6 @@ export default function App() {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
 
   const HERO_SLIDES = [
-    {
-      image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=1200&auto=format&fit=crop",
-      title: "OBSIDIAN",
-      subtitle: "MASTER"
-    },
     {
       image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop",
       title: "SILVER",
