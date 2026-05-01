@@ -23,6 +23,7 @@ import {
   QrCode,
   CheckCircle2
 } from 'lucide-react';
+import paymentQr from './assets/images/regenerated_image_1777617587772.jpg';
 
 // --- Data ---
 
@@ -430,30 +431,18 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-brand-black text-white p-8 rounded-[2.5rem] text-center"
                 >
-                  <div className="bg-[#FDEFD9] p-8 rounded-[2rem] mb-6 shadow-inner">
-                    <div className="mb-4">
-                      <p className="text-black font-bold text-xl tracking-tight">ansumanverma@fam</p>
-                    </div>
-                    
-                    <div className="aspect-square w-full max-w-[240px] mx-auto bg-white p-3 rounded-2xl shadow-xl flex items-center justify-center relative">
+                  <div className="bg-[#FDEFD9] p-4 rounded-[2rem] mb-6 shadow-inner">
+                    <div className="aspect-square w-full max-w-[320px] mx-auto bg-white p-0 rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
                       <img 
-                        src={`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=ansumanverma@fam&pn=Ansuman%20Verma&am=${product.price.replace('₹', '').replace(',', '')}&cu=INR`} 
+                        src={paymentQr} 
                         alt="UPI Payment QR Code" 
                         className="w-full h-full object-contain" 
                       />
                     </div>
-
-                    <div className="mt-6 flex justify-between items-center px-4">
-                      <p className="text-black font-black text-2xl italic">triö</p>
-                      <div className="flex flex-col items-end">
-                        <p className="text-black font-bold text-[10px] leading-none">UPI</p>
-                        <p className="text-black/60 text-[6px] tracking-tighter uppercase font-bold">Unified Payments Interface</p>
-                      </div>
-                    </div>
                   </div>
 
-                  <h2 className="text-luxury text-2xl mb-2">Complete Payment</h2>
-                  <p className="text-gray-400 mb-6 text-xs uppercase tracking-widest font-bold">Payable: {product.price}</p>
+                  <h2 className="text-luxury text-2xl mb-2">Scan & Pay</h2>
+                  <p className="text-gray-400 mb-6 text-xs uppercase tracking-widest font-bold">Total Payable: {product.price}</p>
 
                   <p className="text-[10px] text-gray-500 mb-2 px-6 uppercase tracking-widest font-bold leading-relaxed">
                     Scan the QR above with any UPI app to complete your order. Our team will contact you once the transaction is reflected.
