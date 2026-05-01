@@ -23,6 +23,7 @@ import {
   QrCode,
   CheckCircle2
 } from 'lucide-react';
+import paymentQr from './assets/images/payment_qr.jpg';
 
 // --- Data ---
 
@@ -430,17 +431,20 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   animate={{ opacity: 1, scale: 1 }}
                   className="bg-brand-black text-white p-10 rounded-[2.5rem] text-center"
                 >
-                  <QrCode size={48} className="mx-auto text-brand-gold mb-6" />
-                  <div className="aspect-square max-w-[320px] mx-auto bg-[#FDF0E0] p-6 rounded-[2.5rem] mb-8 flex items-center justify-center shadow-2xl border border-brand-gold/10">
+                  <h2 className="text-luxury text-4xl mb-2">Pay via UPI</h2>
+                  <p className="text-brand-gold font-mono text-sm tracking-widest mb-6 uppercase">ansumanverma@fam</p>
+                  <p className="text-gray-400 mb-8 text-[10px] uppercase tracking-[0.2em] font-bold">Total Amount: {product.price}</p>
+                  
+                  <div className="aspect-square max-w-[320px] mx-auto bg-white p-4 rounded-[2.5rem] mb-8 flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.2)] border border-brand-gold/20 overflow-hidden">
                     <img 
-                      src="/src/assets/images/payment_qr.jpg" 
+                      src={paymentQr} 
                       alt="UPI Payment QR Code" 
                       className="w-full h-full object-contain" 
                     />
                   </div>
 
                   <p className="text-[10px] text-gray-500 mb-2 px-6 uppercase tracking-widest font-bold leading-relaxed">
-                    Scan the QR above with any UPI app to complete your purchase.
+                    Scan the QR above with any UPI app to complete your order. Our team will contact you once the transaction is reflected.
                   </p>
                 </motion.div>
               )}
