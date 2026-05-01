@@ -23,7 +23,6 @@ import {
   QrCode,
   CheckCircle2
 } from 'lucide-react';
-import paymentQr from './assets/images/regenerated_image_1777617587772.jpg';
 
 // --- Data ---
 
@@ -434,7 +433,7 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   <div className="bg-[#FDEFD9] p-4 rounded-[2rem] mb-6 shadow-inner">
                     <div className="aspect-square w-full max-w-[320px] mx-auto bg-white p-0 rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
                       <img 
-                        src={paymentQr} 
+                        src="/payment_qr.jpg" 
                         alt="UPI Payment QR Code" 
                         className="w-full h-full object-contain" 
                       />
