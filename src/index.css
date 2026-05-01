@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-brand-gold: #D4AF37;
+  --color-brand-black: #0A0A0A;
+  --color-brand-offwhite: #FAF9F6;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-offwhite text-brand-black font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-luxury {
+    @apply font-display tracking-tight leading-tight;
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-md bg-white/70 border-b border-gray-100;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
