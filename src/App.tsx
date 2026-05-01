@@ -23,7 +23,6 @@ import {
   QrCode,
   CheckCircle2
 } from 'lucide-react';
-import paymentQr from './assets/images/payment_qr.jpg';
 
 // --- Data ---
 
@@ -429,19 +428,32 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   key="payment"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-brand-black text-white p-10 rounded-[2.5rem] text-center"
+                  className="bg-brand-black text-white p-8 rounded-[2.5rem] text-center"
                 >
-                  <h2 className="text-luxury text-4xl mb-2">Pay via UPI</h2>
-                  <p className="text-brand-gold font-mono text-sm tracking-widest mb-6 uppercase">ansumanverma@fam</p>
-                  <p className="text-gray-400 mb-8 text-[10px] uppercase tracking-[0.2em] font-bold">Total Amount: {product.price}</p>
-                  
-                  <div className="aspect-square max-w-[320px] mx-auto bg-white p-4 rounded-[2.5rem] mb-8 flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.2)] border border-brand-gold/20 overflow-hidden">
-                    <img 
-                      src={paymentQr} 
-                      alt="UPI Payment QR Code" 
-                      className="w-full h-full object-contain" 
-                    />
+                  <div className="bg-[#FDEFD9] p-8 rounded-[2rem] mb-6 shadow-inner">
+                    <div className="mb-4">
+                      <p className="text-black font-bold text-xl tracking-tight">ansumanverma@fam</p>
+                    </div>
+                    
+                    <div className="aspect-square w-full max-w-[240px] mx-auto bg-white p-3 rounded-2xl shadow-xl flex items-center justify-center relative">
+                      <img 
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=ansumanverma@fam&pn=Ansuman%20Verma&am=${product.price.replace('₹', '').replace(',', '')}&cu=INR`} 
+                        alt="UPI Payment QR Code" 
+                        className="w-full h-full object-contain" 
+                      />
+                    </div>
+
+                    <div className="mt-6 flex justify-between items-center px-4">
+                      <p className="text-black font-black text-2xl italic">triö</p>
+                      <div className="flex flex-col items-end">
+                        <p className="text-black font-bold text-[10px] leading-none">UPI</p>
+                        <p className="text-black/60 text-[6px] tracking-tighter uppercase font-bold">Unified Payments Interface</p>
+                      </div>
+                    </div>
                   </div>
+
+                  <h2 className="text-luxury text-2xl mb-2">Complete Payment</h2>
+                  <p className="text-gray-400 mb-6 text-xs uppercase tracking-widest font-bold">Payable: {product.price}</p>
 
                   <p className="text-[10px] text-gray-500 mb-2 px-6 uppercase tracking-widest font-bold leading-relaxed">
                     Scan the QR above with any UPI app to complete your order. Our team will contact you once the transaction is reflected.
