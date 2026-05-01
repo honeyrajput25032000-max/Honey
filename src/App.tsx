@@ -428,24 +428,30 @@ const ProductDetail = ({ product, onBack }: { product: typeof COLLECTIONS[0], on
                   key="payment"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="bg-brand-black text-white p-8 rounded-[2.5rem] text-center"
+                  className="bg-brand-black text-white p-8 rounded-[3rem] text-center"
                 >
-                  <div className="bg-[#FDEFD9] p-4 rounded-[2rem] mb-6 shadow-inner">
-                    <div className="aspect-square w-full max-w-[320px] mx-auto bg-white p-0 rounded-2xl shadow-2xl flex items-center justify-center relative overflow-hidden">
+                  <div className="bg-[#FDEFD9] p-6 rounded-[2.5rem] mb-6 shadow-2xl relative overflow-hidden group">
+                    <div className="aspect-square w-full max-w-[340px] mx-auto bg-white p-2 rounded-3xl shadow-xl flex items-center justify-center relative overflow-hidden">
                       <img 
                         src="/payment_qr.jpg" 
                         alt="UPI Payment QR Code" 
-                        className="w-full h-full object-contain" 
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          console.error("QR Code failed to load from /payment_qr.jpg");
+                          // Fallback to absolute path if relative fails for some reason
+                          (e.target as HTMLImageElement).src = window.location.origin + "/payment_qr.jpg";
+                        }}
                       />
                     </div>
                   </div>
 
-                  <h2 className="text-luxury text-2xl mb-2">Scan & Pay</h2>
-                  <p className="text-gray-400 mb-6 text-xs uppercase tracking-widest font-bold">Total Payable: {product.price}</p>
-
-                  <p className="text-[10px] text-gray-500 mb-2 px-6 uppercase tracking-widest font-bold leading-relaxed">
-                    Scan the QR above with any UPI app to complete your order. Our team will contact you once the transaction is reflected.
-                  </p>
+                  <div className="space-y-2">
+                    <h2 className="text-luxury text-3xl mb-1">Scan & Pay</h2>
+                    <p className="text-brand-gold font-mono text-sm tracking-widest uppercase mb-4">{product.price}</p>
+                    <p className="text-[10px] text-gray-500 px-6 uppercase tracking-[0.2em] font-bold leading-relaxed max-w-[280px] mx-auto">
+                      Scan with any UPI app to complete your order. Our team will verify and contact you.
+                    </p>
+                  </div>
                 </motion.div>
               )}
 
